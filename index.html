@@ -5,11 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quizapp</title>
     <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <script src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
-    <h1>QuizApp</h1>
+    <div class="container">
+        <nav>
+            <img src="./files/Quizapp/logo.png" alt="logo">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">HTML</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">CSS</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">JS</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Java</a>
+                </li>
+               
+              </ul>
+
+        </nav>
+        <div class="quiz">
+            
+                <div class="card quizCard">
+                    <div class="card-body">
+                      <h5 class="card-title">Frage</h5>
+                      <div class="card mb-2">
+                        <div class="card-body">
+                          Antwort
+                        </div>
+                      </div><div class="card mb-2">
+                        <div class="card-body">
+                          Antwort
+                        </div>
+                      </div><div class="card mb-2">
+                        <div class="card-body">
+                          Antwort
+                        </div>
+                      </div><div class="card mb-2">
+                        <div class="card-body">
+                          Antwort
+                        </div>
+                      </div>
+                      <div class="questionFooter">
+                        <span>
+                         <b>1</b> von <b>5</b> Fragen
+                        </span>
+                        <button class="btn btn-primary">Nächste Frage</button>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+        </div>
+    </div>
+        
     
 </body>
 </html>

@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    background-color: #FEFAEF !important;
+    min-height: 100vh;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+
+.quizCard {
+    width: 30rem;
+}
+
+
+
+nav {
+    background-color: #27355C !important;
+    font-family: "Rubik", sans-serif;
+    padding: 16px;
+   
+}
+
+nav img {
+    margin-bottom: 32px;
+}
+    
+
+nav a {
+    color: white !important;
+    
+}
+
+.questionFooter {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgba(0,0,0,0.4);
+    align-items: center;
+    padding-top: 12px;
+}
+
+
+
