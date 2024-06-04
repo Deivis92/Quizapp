@@ -57,6 +57,8 @@ nav a {
     color:white !important;
 }
 
+
+
 .card-body-end {
     display: flex;
     flex-direction: column;
@@ -85,6 +87,10 @@ nav a {
     position: absolute;
     right: 0;
     top: 100px;
+}
+
+.quiz {
+    display: flex;
 }
 
 

@@ -42,10 +42,13 @@ let questions = [
   },
 ];
 
+let rightQuestions = 0;
 let currentQuestion = 0;
+
 
 function init() {
   document.getElementById("allQuestions").innerHTML = questions.length;
+  document.getElementById("ammountOfRightQuestions").innerHTML = rightQuestions;
 
   showQuestion();
 }
@@ -59,6 +62,9 @@ function showQuestion() {
     document.querySelectorAll('.quizAnswerCard').forEach(card => card.style.display = 'none');
     document.getElementById('nextButton').style.display = 'none';
     document.getElementById('questionFooterId').style.display = 'none';
+
+    document.getElementById('ammountOfRightQuestions').innerHTML = rightQuestions;
+    document.getElementById('ammountOfQuestions').innerHTML = questions.length;
   } else {
     let question = questions[currentQuestion];
 
@@ -79,6 +85,7 @@ function answer(selection) {
 
   if (selectedQuestionNumber == question["right_answer"]) {
     document.getElementById(selection).parentNode.classList.add("bg-success");
+    rightQuestions++;
   } else {
     document.getElementById(selection).parentNode.classList.add("bg-danger");
     document
