@@ -40,10 +40,20 @@ let questions = [
     answer_4: "d) Brasilien",
     right_answer: 3,
   },
+  {
+    question: "Koks Henrio slapyvardis?",
+    answer_1: "a) Glajus",
+    answer_2: "b) Smekta",
+    answer_3: "c) Adas",
+    answer_4: "d) Tly",
+    right_answer: 4,
+  }
 ];
 
 let rightQuestions = 0;
 let currentQuestion = 0;
+let audio_success = new Audio('sounds/success.wav'); // added sounds
+let audio_fail = new Audio('sounds/fail.wav'); 
 
 
 function init() {
@@ -54,27 +64,51 @@ function init() {
 }
 
 function showQuestion() {
-  if (currentQuestion >= questions.length) {
-    // Todo: Show End SCreen
+  if (gameIsOver()) {
     
-    document.getElementById('endScreen').style.display = 'block';
-    document.getElementById('questionText').style.display = 'none';
-    document.querySelectorAll('.quizAnswerCard').forEach(card => card.style.display = 'none');
-    document.getElementById('nextButton').style.display = 'none';
-    document.getElementById('questionFooterId').style.display = 'none';
+  showEndScreen();  
+} else { // show question
+  functionUpdateProgressBar();
+  updateToNextQuestion();
+}
+  
 
-    document.getElementById('ammountOfRightQuestions').innerHTML = rightQuestions;
-    document.getElementById('ammountOfQuestions').innerHTML = questions.length;
-  } else {
-    let question = questions[currentQuestion];
+}
 
-    document.getElementById("questionNumber").innerHTML = currentQuestion + 1; // zählen
-    document.getElementById("questionText").innerHTML = question["question"];
-    document.getElementById("answer_1").innerHTML = question["answer_1"];
-    document.getElementById("answer_2").innerHTML = question["answer_2"];
-    document.getElementById("answer_3").innerHTML = question["answer_3"];
-    document.getElementById("answer_4").innerHTML = question["answer_4"];
-  }
+function gameIsOver() {
+  return currentQuestion >= questions.length;
+}
+
+function showEndScreen() {
+  document.getElementById('endScreen').style.display = 'block';
+  document.getElementById('questionText').style.display = 'none';
+  document.querySelectorAll('.quizAnswerCard').forEach(card => card.style.display = 'none');
+  document.getElementById('nextButton').style.display = 'none';
+  document.getElementById('questionFooterId').style.display = 'none';
+  document.getElementById('ammountOfRightQuestions').innerHTML = rightQuestions;
+  document.getElementById('ammountOfQuestions').innerHTML = questions.length;
+
+}
+
+function functionUpdateProgressBar() {
+  let percent = (currentQuestion + 1) / questions.length;
+  percent = Math.round(percent *100);
+  document.getElementById('progressBar').innerHTML = `${percent} %`;
+  document.getElementById('progressBar').style = `width: ${percent}%`;
+ 
+}
+
+function updateToNextQuestion(){
+ functionUpdateProgressBar();
+  
+  let question = questions[currentQuestion];
+
+  document.getElementById("questionNumber").innerHTML = currentQuestion + 1; // zählen
+  document.getElementById("questionText").innerHTML = question["question"];
+  document.getElementById("answer_1").innerHTML = question["answer_1"];
+  document.getElementById("answer_2").innerHTML = question["answer_2"];
+  document.getElementById("answer_3").innerHTML = question["answer_3"];
+  document.getElementById("answer_4").innerHTML = question["answer_4"]
 }
 
 function answer(selection) {
@@ -83,16 +117,20 @@ function answer(selection) {
 
   let idOfRightAnswer = `answer_${question["right_answer"]}`;
 
-  if (selectedQuestionNumber == question["right_answer"]) {
+  if (rightAnswerSelected(selectedQuestionNumber, question)) {
     document.getElementById(selection).parentNode.classList.add("bg-success");
+    audio_success.play();
     rightQuestions++;
   } else {
     document.getElementById(selection).parentNode.classList.add("bg-danger");
-    document
-      .getElementById(idOfRightAnswer)
-      .parentNode.classList.add("bg-success");
+    document.getElementById(idOfRightAnswer).parentNode.classList.add("bg-success");
+    audio_fail.play();
   }
   document.getElementById("nextButton").disabled = false;
+}
+
+function rightAnswerSelected(selectedQuestionNumber, question) {
+  return selectedQuestionNumber == question["right_answer"];
 }
 
 function nextQuestion() {
@@ -111,4 +149,15 @@ function resetAnswerButtons() {
   document.getElementById("answer_3").parentNode.classList.remove("bg-success");
   document.getElementById("answer_4").parentNode.classList.remove("bg-danger");
   document.getElementById("answer_4").parentNode.classList.remove("bg-success");
+}
+
+function restart() {
+  rightQuestions = 0;
+  currentQuestion = 0;
+  document.getElementById('endScreen').style.display = 'none';
+  document.getElementById('questionText').style.display = 'block';
+  document.querySelectorAll('.quizAnswerCard').forEach(card => card.style.display = 'block');
+  document.getElementById('nextButton').style.display = 'block';
+  document.getElementById('questionFooterId').style.display = 'block';
+  init();
 }

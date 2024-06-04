@@ -17,6 +17,8 @@ body {
 
 .quizCard {
     width: 30rem;
+    border-radius: 0 10px 10px 0 !important;
+
 }
 
 
@@ -24,20 +26,32 @@ body {
 nav {
     background-color: #27355C !important;
     font-family: "Rubik", sans-serif;
-    padding: 16px;
+    
+
     
   
 }
 
 nav img {
     margin-bottom: 32px;
+    padding: 26px;
 }
     
 
 nav a {
     color: white !important;
-    
+    display: block; 
+    padding: 8px 16px; 
+    transition: border-left 0.3s ease, padding-left 0.3s ease; 
+    width: 100%;
 }
+
+nav a:hover {
+    border-left: 4px solid white;
+    padding-left: 12px; /* Adjust padding to maintain alignment after adding border */
+}
+    
+
 
 .questionFooter {
     display: flex;
@@ -93,5 +107,7 @@ nav a {
     display: flex;
 }
 
-
+.progress, .progress-stacked {
+    margin-bottom: 8px;
+}
 

@@ -18,7 +18,7 @@
     <div class="container">
      
         <div class="quiz">
-          <nav>
+          <nav class="rounded-start-2">
             <img src="./files/Quizapp/logo.png" alt="logo">
             <ul class="nav flex-column">
                 <li class="nav-item">
@@ -48,7 +48,7 @@
                          <h5 style="font-weight: 800;">Complete Quiz</h5>
                          <h4><span style="color:#F18B39">Your Score</span> <span id="ammountOfRightQuestions"></span>/<span id="ammountOfQuestions"></span></h4>
                          <button class="btn btn-primary">Share</button>
-                         <p><a class="link-offset-2 link-underline link-underline-opacity-100" href="#">Replay</a></p>
+                         <p><a onclick="restart()" class="link-offset-2 link-underline link-underline-opacity-100" href="#">Replay</a></p>
                         </div> 
                         <div class="trophy">
                           <img src="./files/Quizapp/tropy.png" alt="tropy">
@@ -73,10 +73,15 @@
                           Antwort
                         </div>
                       </div>
+                      <div class="progress" role="progressbar" aria-label="Example with label">
+                        <div class="progress-bar" id="progressBar" style="width: 25%">25%</div>
+                      </div>
                       <div  id="questionFooterId" class="questionFooter">
+                        
                         <span>
                          <b id="questionNumber">1</b> von <b id="allQuestions">5</b> Fragen
                         </span>
+                        
                         <button onclick="nextQuestion()" id="nextButton" class="btn btn-primary" disabled>Nächste Frage</button> <!-- isjungia mygtuka - disabled-->
 
                       </div>
