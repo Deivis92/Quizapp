@@ -58,6 +58,7 @@ function showQuestion() {
     document.getElementById('questionText').style.display = 'none';
     document.querySelectorAll('.quizAnswerCard').forEach(card => card.style.display = 'none');
     document.getElementById('nextButton').style.display = 'none';
+    document.getElementById('questionFooterId').style.display = 'none';
   } else {
     let question = questions[currentQuestion];
 

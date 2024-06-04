@@ -40,11 +40,17 @@
                     <div class="card-body">
 
                       <div class="card-body" id="endScreen" style="display: none;">
-                         <img src="./files/Quizapp/brain result.png">
-                         <h5>Complete Quiz</h5>
-                         <h4>Your Score 5/5</h4>
+                        <div class="card-body-end"> 
+                          
+                        <img src="./files/Quizapp/brain result.png">
+                         <h5 style="font-weight: 800;">Complete Quiz</h5>
+                         <h4><span style="color:#F18B39">Your Score</span> 5/5</h4>
                          <button class="btn btn-primary">Share</button>
                          <p><a class="link-offset-2 link-underline link-underline-opacity-100" href="#">Replay</a></p>
+                        </div> 
+                        <div class="trophy">
+                          <img src="./files/Quizapp/tropy.png" alt="tropy">
+                        </div>
                       </div>
 
                       <h5 id="questionText" class="card-title">Frage</h5>
@@ -65,7 +71,7 @@
                           Antwort
                         </div>
                       </div>
-                      <div class="questionFooter">
+                      <div  id="questionFooterId" class="questionFooter">
                         <span>
                          <b id="questionNumber">1</b> von <b id="allQuestions">5</b> Fragen
                         </span>
