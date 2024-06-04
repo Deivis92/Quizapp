@@ -12,7 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 
 </head>
-<body>
+<body onload="init()">
 
     <div class="container">
         <nav>
@@ -38,29 +38,38 @@
             
                 <div class="card quizCard">
                     <div class="card-body">
-                      <h5 class="card-title">Frage</h5>
-                      <div class="card mb-2">
-                        <div class="card-body">
+
+                      <div class="card-body" id="endScreen" style="display: none;">
+                         <img src="./files/Quizapp/brain result.png">
+                         <h5>Complete Quiz</h5>
+                         <h4>Your Score 5/5</h4>
+                         <button class="btn btn-primary">Share</button>
+                         <p><a class="link-offset-2 link-underline link-underline-opacity-100" href="#">Replay</a></p>
+                      </div>
+
+                      <h5 id="questionText" class="card-title">Frage</h5>
+                      <div class="card quizAnswerCard  mb-2" onclick="answer('answer_1')">
+                        <div id="answer_1" class="card-body">
                           Antwort
                         </div>
-                      </div><div class="card mb-2">
-                        <div class="card-body">
+                      </div><div class="card quizAnswerCard  mb-2" onclick="answer('answer_2')">
+                        <div id="answer_2" class="card-body">
                           Antwort
                         </div>
-                      </div><div class="card mb-2">
-                        <div class="card-body">
+                      </div><div class="card quizAnswerCard  mb-2" onclick="answer('answer_3')">
+                        <div id="answer_3" class="card-body">
                           Antwort
                         </div>
-                      </div><div class="card mb-2">
-                        <div class="card-body">
+                      </div><div class="card quizAnswerCard  mb-2" onclick="answer('answer_4')">
+                        <div id="answer_4" class="card-body">
                           Antwort
                         </div>
                       </div>
                       <div class="questionFooter">
                         <span>
-                         <b>1</b> von <b>5</b> Fragen
+                         <b id="questionNumber">1</b> von <b id="allQuestions">5</b> Fragen
                         </span>
-                        <button class="btn btn-primary">Nächste Frage</button>
+                        <button onclick="nextQuestion()" id="nextButton" class="btn btn-primary" disabled>Nächste Frage</button> <!-- isjungia mygtuka - disabled-->
 
                       </div>
                     </div>

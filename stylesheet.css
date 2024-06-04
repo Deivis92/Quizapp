@@ -46,5 +46,15 @@ nav a {
     padding-top: 12px;
 }
 
+.quizAnswerCard:hover {
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.05);
+
+}
+
+.bg-success, .bg-danger {
+    color:white !important;
+}
+
 
 
