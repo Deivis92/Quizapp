@@ -51,6 +51,11 @@ nav a:hover {
   margin-top: 80px;
 }
 
+.footerMiddle {
+  display: flex;
+    justify-content: space-between;
+}
+
 .quizAnswerCard:hover {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.05);
