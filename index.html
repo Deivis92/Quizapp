@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quizapp</title>
+    <link rel="icon" href="./files/Quizapp/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <script src="script.js"></script>
@@ -15,9 +16,12 @@
 </head>
 <body onload="init()">
 
-    <div class="container">
-     
+  
         <div class="quiz">
+
+          
+
+
           <nav class="rounded-start-2">
             <img src="./files/Quizapp/logo.png" alt="logo">
             <ul class="nav flex-column">
@@ -55,6 +59,15 @@
                         </div>
                       </div>
 
+                      <div class="start " id="welcomeScreen">
+                        
+                         <div class="welcomeScreenPositiong">
+                          <h4>Welcome to<br>The Awsome Quiz<br><span style="font-size: 16px;">Ready for the Chellenge?</span></h4>
+                          <button onclick="startPush()" class="btn btn-primary">Start Now  </button>
+                        </div>
+                        
+                      </div>
+
                       <h5 id="questionText" class="card-title">Frage</h5>
                       <div class="card quizAnswerCard mb-2" onclick="answer('answer_1')">
                         <div id="answer_1" class="card-body">
@@ -73,7 +86,7 @@
                           Antwort
                         </div>
                       </div>
-                      <div class="progress" role="progressbar" aria-label="Example with label">
+                      <div class="progress" id="progressBarHidden" role="progressbar" aria-label="Example with label">
                         <div class="progress-bar" id="progressBar" style="width: 25%">25%</div>
                       </div>
                       <div  id="questionFooterId" class="questionFooter">
